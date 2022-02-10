@@ -1,8 +1,10 @@
 fn say(a: String) {
     println!("{}", a);
 }
-fn speak(b: &String) {
+fn speak(b: &mut String) {
     println!("{}", b);
+
+    b.push_str("me!!");
 }
 fn tell(c: &str) {
     println!("{}", &c);
@@ -11,12 +13,12 @@ fn tell(c: &str) {
 fn main() {
     let hello: String = "Hello, world!".into();
     let world: &str = "Hello, world! 2";
-    let help = String::from("Help!!");
+    let mut help = String::from("Help!!");
 
     let s = hello.clone();
 
     say(hello);
-    speak(&help);
+    speak(&mut help);
     tell(&world);
     
     // println!("{}", hello);
